@@ -17,7 +17,7 @@ class Binary_Tree
 public:
 
 	void setRoot(BTNode<Item_Type>* newRoot);
-	BTNode<Item_Type>* getRoot();
+	BTNode<Item_Type>* getRoot() const;
 	// Constructors and Functions
 
 	/** Construct an empty Binary_Tree. */
@@ -154,7 +154,7 @@ void Binary_Tree<Item_Type>::setRoot(BTNode<Item_Type>* new_root){
 	root = new_root;
 }
 template<typename Item_Type>
-BTNode<Item_Type>* Binary_Tree<Item_Type>::getRoot(){
+BTNode<Item_Type>* Binary_Tree<Item_Type>::getRoot() const{
 
 	return root;
 }

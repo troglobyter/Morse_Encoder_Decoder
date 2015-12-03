@@ -150,6 +150,13 @@ template<typename Key_Type, typename Value_Type>
       // Return a reference to the value found or inserted.
       return ret.first->second;
     }
+
+	Value_Type& operator[](const Key_Type& key) const{
+		// Try to insert a dummy item.
+		std::pair<iterator, bool> ret = insert(Entry_Type(key, Value_Type()));
+		// Return a reference to the value found or inserted.
+		return ret.first->second;
+	}
     
     /** Remove an item from the map based on a key
 	@param key The key of the item to be removed

@@ -14,6 +14,7 @@ public:
 	char Morse_to_letter(const std::string& the_morse_code) const;
 
 private:
+	//**Data structure members.
 	KW::hash_map<char, std::string> letter_to_morse_code_hash_table;
 	Binary_Tree<Morse_Data> morse_code_to_letter_tree;
 
