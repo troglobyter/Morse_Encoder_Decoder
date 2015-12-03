@@ -9,7 +9,7 @@
 
 class Morse_Translator{
 public:
-	void make_BST_BT(std::ifstream& inFstream);
+	void make_HASH_TABLE_BT(std::ifstream& inFstream);
 	std::string letter_to_Morse(const char the_letter) const;
 	char Morse_to_letter(const std::string& the_morse_code) const;
 

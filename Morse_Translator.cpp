@@ -1,6 +1,6 @@
 #include "Morse_Translator.h"
 
-void Morse_Translator::make_BST_BT(std::ifstream& inFstream){
+void Morse_Translator::make_HASH_TABLE_BT(std::ifstream& inFstream){
 	std::string alpha_dots_dashes, Morse_Code_string;
 	Morse_Data Morse_Code_Obj_Array[30];
 	char Letter;
@@ -17,7 +17,7 @@ void Morse_Translator::make_BST_BT(std::ifstream& inFstream){
 
 	Morse_Data Empty_M_Data;
 	morse_code_to_letter_tree.setRoot(new BTNode<Morse_Data>(Empty_M_Data));
-	for (int i = 0; i <= arr_index, i++){
+	for (int i = 0; i <= arr_index; i++){
 		Morse_Data Morse_Code_Obj = Morse_Code_Obj_Array[i];
 		BTNode<Morse_Data>* current = morse_code_to_letter_tree.getRoot();
 		for (int i = 0; i < Morse_Code_Obj.length_morse_code; ++i){
