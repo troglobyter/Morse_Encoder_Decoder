@@ -1,6 +1,20 @@
 #include "Morse_Translator.h"
+#include <iostream> //needed for error msgs
 
 void Morse_Translator::make_HASH_TABLE_BT(std::ifstream& inFstream){
+	
+	//Open the morse code file
+	inFstream.open("morse.txt");
+
+	//Check to see if file opened correctly
+	if (!inFstream)
+	{
+		// Print Error And Exit
+		std::cerr << "/n/nMorse code file not found... /n";
+		system("pause");
+		exit(0);
+	}
+
 	
 	//**Variables needed for creating hash table and binary tree.
 	std::string alpha_dots_dashes, Morse_Code_string;
@@ -35,8 +49,11 @@ void Morse_Translator::make_HASH_TABLE_BT(std::ifstream& inFstream){
 				current = current->left;
 			else if (Morse_Code_Obj.morse_code[i] == '-')
 				current = current->right;
-			//else
-				//error
+			else
+			// Print Error And Exit!
+			std::cerr << "/n/nError creating morse code binary tree... /n";
+			system("pause");
+			exit(0);
 		}
 		//**Add the Morse_Data object to the binary tree.
 		bool valid_insert = morse_code_to_letter_tree.insert(current, Morse_Code_Obj);
@@ -51,7 +68,7 @@ std::string Morse_Translator::letter_to_Morse(const char the_letter) const{
 		std::string the_morse_code_string = letter_to_morse_code_hash_table[the_letter];
 		return the_morse_code_string;
 	}
-	catch(int ex){
+	catch(...){
 		//**Exception when item not found.
 		return "0000";
 	}
@@ -73,8 +90,11 @@ char Morse_Translator::Morse_to_letter(const std::string& the_morse_code) const{
 			BTNode<Morse_Data>* right = current->right;
 			current = right;
 		}
-		//else
-			//error
+		else
+		// Print Error And Exit!
+			std::cerr << "/n/nError in translating morse code to text... /n";
+			system("pause");
+			exit(0);
 	}
 	return current->data.letter;
 }
